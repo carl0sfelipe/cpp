@@ -2,28 +2,54 @@
 #include <iostream>
 #include <sstream>
 
+
 void addContact(PhoneBook &phoneBook) {
     Contact newContact;
     std::string input;
 
-    std::cout << "Enter first name: ";
-    std::getline(std::cin, input);
+    do {
+        std::cout << "Enter first name: ";
+        std::getline(std::cin, input);
+        if (input.empty()) {
+            std::cout << "First name cannot be empty. Please enter again." << std::endl;
+        }
+    } while (input.empty());
     newContact.setFirstName(input);
 
-    std::cout << "Enter last name: ";
-    std::getline(std::cin, input);
+    do {
+        std::cout << "Enter last name: ";
+        std::getline(std::cin, input);
+        if (input.empty()) {
+            std::cout << "Last name cannot be empty. Please enter again." << std::endl;
+        }
+    } while (input.empty());
     newContact.setLastName(input);
 
-    std::cout << "Enter nickname: ";
-    std::getline(std::cin, input);
+    do {
+        std::cout << "Enter nickname: ";
+        std::getline(std::cin, input);
+        if (input.empty()) {
+            std::cout << "Nickname cannot be empty. Please enter again." << std::endl;
+        }
+    } while (input.empty());
     newContact.setNickname(input);
 
-    std::cout << "Enter phone number: ";
-    std::getline(std::cin, input);
+    do {
+        std::cout << "Enter phone number: ";
+        std::getline(std::cin, input);
+        if (input.empty()) {
+            std::cout << "Phone number cannot be empty. Please enter again." << std::endl;
+        }
+    } while (input.empty());
     newContact.setPhoneNumber(input);
 
-    std::cout << "Enter darkest secret: ";
-    std::getline(std::cin, input);
+    do {
+        std::cout << "Enter darkest secret: ";
+        std::getline(std::cin, input);
+        if (input.empty()) {
+            std::cout << "Darkest secret cannot be empty. Please enter again." << std::endl;
+        }
+    } while (input.empty());
     newContact.setDarkestSecret(input);
 
     phoneBook.addContact(newContact);
