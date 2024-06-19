@@ -10,18 +10,28 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include <iostream> // cout, endl
+#include <cstdlib> // EXIT_* macros
 
-int main(int argc, char **argv) {//argc is the number of arguments passed to the program, including the name of the program. argv is an array of strings containing the arguments.
-    if (argc == 1) {
-        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;//std::endl is a manipulator that inserts a newline character into the output stream.
-    } else {
-        for (int i = 1; i < argc; i++) {//i is the index of the argument 
-            for (int j = 0; argv[i][j] != '\0'; j++) {//j is the index of the character in the argument
-                std::cout << (char)(argv[i][j] - 32);//std::toupper converts the character to uppercase
-            }
-        }
-        std::cout << std::endl;
+using std::cout;
+using std::endl;
+
+std::string string_to_upper(std::string arg)
+{
+    for (size_t i = 0; i < arg.length(); i += 1)
+        arg[i] = toupper(arg[i]);
+    return arg;
+}
+
+int main(int argc, char **argv)
+{
+    if (argc == 1)
+    {
+        cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << endl;
+        return EXIT_SUCCESS;
     }
-    return 0;
+    for (int i = 1; i < argc; i += 1)
+        cout << string_to_upper(argv[i]);
+    cout << endl;
+    return EXIT_SUCCESS;
 }
