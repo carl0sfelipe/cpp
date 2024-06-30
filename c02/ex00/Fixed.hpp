@@ -1,23 +1,21 @@
-
 #ifndef FIXED_HPP
-#define FIXED_HPP
 
-#include <iostream>
+# define FIXED_HPP
 
-class Fixed
+# include <iostream>
+
+class	Fixed
 {
-private:
-    int                 _fixedPointValue;
-    static const int    _fractionalBits = 8;
-
-public:
-    Fixed(/* args */);
-    Fixed( const Fixed &rhs );
-    Fixed& operator=( const Fixed &rhs );
-    ~Fixed();
-
-    int     getRawBits( void ) const;
-    void    setRawBits( int const raw );
+	private:
+		int					_value;
+		static const int	_frac;
+	public:
+		Fixed(void);
+		~Fixed(void);
+		Fixed(Fixed const &copy);
+		Fixed	&operator=(Fixed const &copy);
+		int		getRawBits(void) const;
+		void	setRawBits(int const raw);
 };
 
 #endif
